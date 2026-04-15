@@ -3,474 +3,324 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Озноб — пояснення</title>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Щитовидка — Кветко Андрій Романович</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #0F2A44;
-    --blue: #1B6B93;
-    --sky: #4FC0D0;
-    --mint: #5CE0D2;
-    --white: #FFFFFF;
-    --offwhite: #F4F7FA;
-    --cream: #F9FAFB;
-    --body: #334155;
-    --muted: #7A8FA0;
-    --green: #10B981;
-    --green-bg: #D1FAE5;
-    --green-dark: #065F46;
-    --orange: #F59E0B;
-    --orange-bg: #FEF3C7;
-    --orange-dark: #92400E;
-    --red: #EF4444;
-    --red-bg: #FEE2E2;
-  }
+:root {
+  --bg: #F4F6FA;
+  --bg-2: #EDF1F7;
+  --ink: #0F2A44;
+  --ink-soft: #334155;
+  --muted: #7A8FA0;
+  --accent: #1B6B93;
+  --mint: #5CE0D2;
+  --card: #FFFFFF;
+  --shadow: 0 6px 24px rgba(15, 42, 68, 0.08);
+  --shadow-hover: 0 12px 36px rgba(15, 42, 68, 0.14);
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html, body {
-    width: 100%;
-    overflow-x: hidden;
-  }
+html, body { width: 100%; overflow-x: hidden; }
 
-  body {
-    font-family: 'Source Sans 3', Georgia, serif;
-    background: var(--offwhite);
-    color: var(--body);
-    -webkit-text-size-adjust: 100%;
-    line-height: 1.6;
-  }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  color: var(--ink-soft);
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.6;
+}
 
-  /* Section = was "slide" — now scrolls naturally */
-  .section {
-    padding: 2.5rem 1.5rem;
-    position: relative;
-    overflow: hidden;
-  }
+.wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
 
-  .section-dark {
-    background: linear-gradient(160deg, var(--navy) 0%, #0C2236 100%);
-    color: var(--white);
-  }
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  padding: 1.5rem 0 2.5rem;
+}
 
-  .section-light {
-    background: linear-gradient(180deg, var(--offwhite) 0%, var(--cream) 100%);
-    color: var(--body);
-  }
+.header-label {
+  display: inline-block;
+  background: rgba(27, 107, 147, 0.1);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  border-radius: 24px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
 
-  /* Dot pattern on dark sections */
-  .section-dark::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 24px 24px;
-    pointer-events: none;
-  }
+h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
 
-  /* Decorative circles — smaller on mobile */
-  .deco-circle {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-  }
+.accent-line {
+  width: 64px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin: 0 auto 1.2rem;
+}
 
-  .deco-1 {
-    width: 280px; height: 280px;
-    background: rgba(27, 107, 147, 0.25);
-    top: -120px; right: -80px;
-  }
-  .deco-2 {
-    width: 180px; height: 180px;
-    background: rgba(79, 192, 208, 0.2);
-    top: -40px; right: -20px;
-  }
-  .deco-3 {
-    width: 240px; height: 240px;
-    background: rgba(27, 107, 147, 0.2);
-    bottom: -100px; left: -80px;
-  }
+.patient-info {
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
 
-  .container {
-    position: relative;
-    max-width: 760px;
-    margin: 0 auto;
-    z-index: 1;
-  }
+.patient-info strong {
+  color: var(--ink-soft);
+  font-weight: 700;
+}
 
-  .slide-label {
-    font-family: 'Source Sans 3', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--mint);
-    margin-bottom: 0.6rem;
-    font-weight: 600;
-  }
+/* ===== CARDS ===== */
+.section-title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  padding-left: 0.25rem;
+}
 
-  .slide-title {
-    font-family: 'Merriweather', Georgia, serif;
-    font-size: 1.9rem;
-    font-weight: 900;
-    line-height: 1.25;
-    margin-bottom: 1.1rem;
-  }
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-  .section-dark .slide-title { color: var(--white); }
-  .section-light .slide-title { color: var(--navy); }
+.card {
+  display: block;
+  background: var(--card);
+  border-radius: 18px;
+  padding: 1.4rem 1.4rem;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(15, 42, 68, 0.04);
+  position: relative;
+  overflow: hidden;
+}
 
-  .accent-line {
-    width: 70px;
-    height: 4px;
-    background: var(--mint);
-    margin-bottom: 1.4rem;
-    border-radius: 2px;
-  }
+.card:active,
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
 
-  .section-light .accent-line { background: var(--blue); }
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
 
-  .slide-text {
-    font-size: 1.15rem;
-    line-height: 1.65;
-  }
+.card-emoji {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.9rem;
+  background: linear-gradient(135deg, #E0F2FE, #DBEAFE);
+}
 
-  .section-dark .slide-text { color: rgba(255,255,255,0.9); }
+.card-1 .card-emoji { background: linear-gradient(135deg, #DBEAFE, #E0F2FE); }
+.card-2 .card-emoji { background: linear-gradient(135deg, #FEF3C7, #FED7AA); }
 
-  .highlight {
-    font-weight: 700;
-    color: var(--mint);
-  }
+.card-titles {
+  flex: 1;
+  min-width: 0;
+}
 
-  .section-light .highlight { color: var(--blue); }
+.card-date {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
 
-  /* Cards */
-  .card {
-    background: var(--white);
-    border-radius: 14px;
-    padding: 1.3rem 1.4rem;
-    margin-top: 1rem;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  }
+.card-title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+}
 
-  .card-green {
-    border-left: 5px solid var(--green);
-    background: var(--green-bg);
-  }
-  .card-orange {
-    border-left: 5px solid var(--orange);
-    background: var(--orange-bg);
-  }
-  .card-red {
-    border-left: 5px solid var(--red);
-    background: var(--red-bg);
-  }
+.card-desc {
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin-top: 0.3rem;
+}
 
-  .card-title {
-    font-family: 'Merriweather', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
+.card-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.9rem;
+}
 
-  .card-green .card-title { color: var(--green-dark); }
-  .card-orange .card-title { color: var(--orange-dark); }
-  .card-red .card-title { color: #991B1B; }
+.tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  background: rgba(27, 107, 147, 0.08);
+  color: var(--accent);
+}
 
-  .card-text {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: var(--body);
-  }
+.tag.warn { background: rgba(245, 158, 11, 0.12); color: #92400E; }
+.tag.good { background: rgba(16, 185, 129, 0.12); color: #065F46; }
 
-  /* Dark card */
-  .card-dark {
-    background: rgba(27, 107, 147, 0.3);
-    border-left: 5px solid var(--mint);
-    border-radius: 12px;
-    padding: 1.2rem 1.3rem;
-    margin-top: 1.2rem;
-  }
+.card-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(15, 42, 68, 0.06);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+}
 
-  .card-dark .card-title {
-    color: var(--mint);
-    margin-bottom: 0.4rem;
-  }
+.card-arrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: transform 0.2s;
+}
 
-  .card-dark .card-text {
-    color: rgba(255,255,255,0.88);
-    font-size: 1.05rem;
-  }
+.card:hover .card-arrow { transform: translateX(4px); }
 
-  /* Items list */
-  .items { margin-top: 1.2rem; }
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding: 1.5rem 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.5;
+}
 
-  .item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.9rem;
-    margin-bottom: 1.1rem;
-  }
+/* ===== LARGER SCREENS ===== */
+@media (min-width: 600px) {
+  .wrap { padding: 3.5rem 2rem 5rem; }
+  h1 { font-size: 2.4rem; }
+  .patient-info { font-size: 1.15rem; }
+  .section-title { font-size: 1.4rem; }
+  .card { padding: 1.8rem 2rem; }
+  .card-title { font-size: 1.5rem; }
+  .card-desc { font-size: 1.1rem; }
+  .card-emoji { width: 64px; height: 64px; font-size: 2.2rem; }
+}
 
-  .item-icon {
-    flex-shrink: 0;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    margin-top: 2px;
-  }
-
-  .icon-green { background: var(--green-bg); color: var(--green); }
-  .icon-orange { background: var(--orange-bg); color: var(--orange); }
-  .icon-blue { background: rgba(79,192,208,0.15); color: var(--sky); }
-
-  .item-text {
-    font-size: 1.05rem;
-    line-height: 1.55;
-  }
-
-  .item-text strong { color: var(--navy); }
-  .section-dark .item-text { color: rgba(255,255,255,0.9); }
-  .section-dark .item-text strong { color: var(--white); }
-
-  /* Stat boxes */
-  .stat-row {
-    display: flex;
-    gap: 0.8rem;
-    margin-top: 1.2rem;
-    flex-wrap: wrap;
-  }
-
-  .stat-box {
-    background: var(--white);
-    border-radius: 14px;
-    padding: 1.1rem 1rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    text-align: center;
-    flex: 1;
-    min-width: 130px;
-  }
-
-  .stat-value {
-    font-family: 'Merriweather', serif;
-    font-size: 2rem;
-    font-weight: 900;
-    line-height: 1.1;
-  }
-
-  .stat-label {
-    font-size: 0.95rem;
-    color: var(--muted);
-    margin-top: 0.3rem;
-  }
-
-  .stat-green .stat-value { color: var(--green); }
-  .stat-orange .stat-value { color: var(--orange); }
-
-  /* Disclaimer */
-  .disclaimer {
-    font-size: 0.9rem;
-    color: var(--muted);
-    font-style: italic;
-    margin-top: 1.8rem;
-    line-height: 1.5;
-  }
-
-  .section-dark .disclaimer { color: rgba(255,255,255,0.4); }
-
-  /* Larger screens — make text more comfortable */
-  @media (min-width: 600px) {
-    .section { padding: 3.5rem 2rem; }
-    .slide-title { font-size: 2.4rem; }
-    .slide-text { font-size: 1.3rem; }
-    .card { padding: 1.7rem 2rem; }
-    .card-title { font-size: 1.4rem; }
-    .card-text { font-size: 1.2rem; }
-    .item-text { font-size: 1.2rem; }
-    .stat-value { font-size: 2.6rem; }
-  }
-
-  @media (min-width: 1000px) {
-    .section { padding: 4.5rem 3rem; }
-    .slide-title { font-size: 2.8rem; }
-    .slide-text { font-size: 1.4rem; }
-    .deco-1 { width: 400px; height: 400px; }
-    .deco-2 { width: 250px; height: 250px; }
-    .deco-3 { width: 350px; height: 350px; }
-  }
+@media (min-width: 900px) {
+  h1 { font-size: 2.8rem; }
+}
 </style>
 </head>
 <body>
 
-<!-- SECTION 1: Title -->
-<section class="section section-dark">
-  <div class="deco-circle deco-1"></div>
-  <div class="deco-circle deco-2"></div>
-  <div class="container">
-    <div class="slide-label">Медичне пояснення</div>
-    <h1 class="slide-title">Озноб при температурі 36.2°C</h1>
-    <div class="accent-line"></div>
-    <p class="slide-text">
-      Чому це сталося та чи варто хвилюватись?
-    </p>
-    <div class="card-dark" style="margin-top: 1.5rem;">
-      <p class="card-text">
-        <strong style="color: var(--mint);">Пацієнт:</strong> Кветко Андрій Романович<br>
-        <strong style="color: var(--mint);">Ситуація:</strong> Вчора ввечері — сильний озноб, температура 36.2°C. Вранці — все нормально.
-      </p>
-    </div>
-  </div>
-</section>
+<div class="wrap">
 
-<!-- SECTION 2: Main reason -->
-<section class="section section-light">
-  <div class="container">
-    <h2 class="slide-title">Найбільш ймовірна причина</h2>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Особиста медична папка</div>
+    <h1>Щитовидка — що до чого</h1>
     <div class="accent-line"></div>
-    <div class="card card-green">
-      <div class="card-title">🔄 Організм звикає до нормальних гормонів</div>
-      <p class="card-text">
-        При гіпертиреозі тіло звикло працювати на «прискорених обертах» — <span class="highlight">підвищений пульс, постійне відчуття жару</span>.
-      </p>
-    </div>
-    <div class="card card-green">
-      <div class="card-title">📉 FT3 повернувся в норму</div>
-      <p class="card-text">
-        Був <strong>5.17</strong> → став <strong>3.72</strong>. Тепер організм «переналаштовується» на нормальний режим. Те, що раніше було комфортним — зараз може здаватися <span class="highlight">холодним</span>.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 3: Simple explanation -->
-<section class="section section-dark">
-  <div class="deco-circle deco-3"></div>
-  <div class="container">
-    <h2 class="slide-title">Простою мовою</h2>
-    <div class="accent-line"></div>
-    <p class="slide-text" style="margin-bottom: 1.2rem;">
-      Уявіть, що ви <span class="highlight">довго їхали з увімкненою пічкою на максимум</span>.
-      Потім пічку вимкнули — в машині стала нормальна температура, але вам здається, що стало холодно.
-    </p>
-    <p class="slide-text">
-      Так само працює тіло: гормони нормалізувались, але організм <span class="highlight">ще не встиг звикнути</span> до нового балансу.
+    <p class="patient-info">
+      <strong>Пацієнт:</strong> Кветко Андрій Романович<br>
+      <strong>Діагноз:</strong> хвороба Грейвса (гіпертиреоз)
     </p>
   </div>
-</section>
 
-<!-- SECTION 4: Temperature -->
-<section class="section section-light">
-  <div class="container">
-    <h2 class="slide-title">Чи нормальна температура 36.2°C?</h2>
-    <div class="accent-line"></div>
-    <div class="stat-row">
-      <div class="stat-box stat-green">
-        <div class="stat-value">36.2°</div>
-        <div class="stat-label">Вчора ввечері</div>
-      </div>
-      <div class="stat-box stat-green">
-        <div class="stat-value">Норма</div>
-        <div class="stat-label">Вранці</div>
-      </div>
-    </div>
-    <div class="card card-green">
-      <div class="card-title">✅ Це нижня межа норми — не патологія</div>
-      <p class="card-text">
-        Температура тіла фізіологічно <span class="highlight">знижується ввечері</span>.
-        36.2 — нормальний показник. Але для людини, яка звикла «горіти» від гіпертиреозу, це може відчуватись як озноб.
-      </p>
-    </div>
-  </div>
-</section>
+  <!-- CARDS -->
+  <div class="section-title">📂 Пояснення</div>
 
-<!-- SECTION 5: Other reasons -->
-<section class="section section-light">
-  <div class="container">
-    <h2 class="slide-title">Інші можливі причини</h2>
-    <div class="accent-line"></div>
-    <div class="items">
-      <div class="item">
-        <div class="item-icon icon-green">🌡️</div>
-        <div class="item-text">
-          <strong>Вегетативні коливання</strong> — щитоподібна залоза тісно пов'язана з терморегуляцією. Поки система «перебалансовується», такі епізоди бувають.
+  <div class="cards">
+
+    <!-- CARD 1: Coffee & cigarettes -->
+    <a class="card card-2" href="coffee.html">
+      <div class="card-top">
+        <div class="card-emoji">☕</div>
+        <div class="card-titles">
+          <div class="card-date">Квітень 2026</div>
+          <div class="card-title">Кава, сигарети та щитовидка</div>
         </div>
       </div>
-      <div class="item">
-        <div class="item-icon icon-green">😴</div>
-        <div class="item-text">
-          <strong>Звичайні фактори</strong> — втома, стрес, переохолодження або початок легкої інфекції, яка не розвинулась.
+      <p class="card-desc">
+        Динаміка всіх аналізів за 7 місяців. Чи можна пити каву. Чому сигарети шкодять саме зараз. Що обговорити з ендокринологом.
+      </p>
+      <div class="card-tags">
+        <span class="tag good">Кава: можна</span>
+        <span class="tag warn">Сигарети: шкодять</span>
+        <span class="tag">6 показників</span>
+      </div>
+      <div class="card-cta">
+        <span>Читати пояснення</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- CARD 2: Oznobi -->
+    <a class="card card-1" href="oznobi.html">
+      <div class="card-top">
+        <div class="card-emoji">🌡️</div>
+        <div class="card-titles">
+          <div class="card-date">Квітень 2026</div>
+          <div class="card-title">Озноб при температурі 36.2°C</div>
         </div>
       </div>
-      <div class="item">
-        <div class="item-icon icon-green">☀️</div>
-        <div class="item-text">
-          <strong>Все пройшло вранці</strong> — це головне. Якби це було щось серйозне, за ніч само не пройшло б.
-        </div>
+      <p class="card-desc">
+        Чому вчора ввечері був сильний озноб, а вранці все пройшло. Чи це нормально на тлі лікування. Коли треба бігти до лікаря.
+      </p>
+      <div class="card-tags">
+        <span class="tag good">Не страшно</span>
+        <span class="tag">Адаптація</span>
       </div>
-    </div>
-  </div>
-</section>
+      <div class="card-cta">
+        <span>Читати пояснення</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
 
-<!-- SECTION 6: Warning -->
-<section class="section section-light">
-  <div class="container">
-    <h2 class="slide-title">⚠️ Важливо знати про тіамазол</h2>
-    <div class="accent-line"></div>
-    <div class="card card-orange">
-      <div class="card-title">Рідкісний побічний ефект — агранулоцитоз</div>
-      <p class="card-text">
-        Тіамазол (навіть у малих дозах) може рідко спричинити різке зниження лейкоцитів — клітин, що борються з інфекціями.
-      </p>
-    </div>
-    <div class="card card-red">
-      <div class="card-title">🚨 Негайно до лікаря, якщо:</div>
-      <p class="card-text">
-        Раптова <strong>температура вище 38°C</strong> + <strong>біль у горлі</strong>.
-        Це сигнал здати загальний аналіз крові та зв'язатись з ендокринологом.
-      </p>
-    </div>
-    <div class="card card-green">
-      <div class="card-title">✅ У вчорашньому випадку це НЕ воно</div>
-      <p class="card-text">
-        Температура була <strong>знижена</strong>, не підвищена. Болю в горлі не було. Все пройшло за ніч.
-      </p>
-    </div>
   </div>
-</section>
 
-<!-- SECTION 7: Conclusion -->
-<section class="section section-dark">
-  <div class="deco-circle deco-1"></div>
-  <div class="deco-circle deco-2"></div>
-  <div class="container">
-    <h2 class="slide-title">Висновок</h2>
-    <div class="accent-line"></div>
-    <p class="slide-text" style="margin-bottom: 1.5rem;">
-      Одноразовий озноб при 36.2°C з повним відновленням вранці — <span class="highlight">нормальна реакція організму</span> на зміну гормонального балансу.
-    </p>
-    <div class="items">
-      <div class="item">
-        <div class="item-icon icon-blue">✓</div>
-        <div class="item-text"><strong>Тривожитись не варто</strong></div>
-      </div>
-      <div class="item">
-        <div class="item-icon icon-blue">✓</div>
-        <div class="item-text"><strong>Якщо повторюється</strong> — повідомте ендокринолога</div>
-      </div>
-      <div class="item">
-        <div class="item-icon icon-orange">!</div>
-        <div class="item-text"><strong>Температура 38°C + біль у горлі</strong> — негайно аналіз крові та до лікаря</div>
-      </div>
-    </div>
-    <p class="disclaimer">
-      Ця сторінка створена для ознайомлення та не є медичним призначенням. Інтерпретація симптомів має проводитись лікарем.
-    </p>
+  <!-- FOOTER -->
+  <div class="footer">
+    Ця сторінка створена для ознайомлення та не є медичним призначенням.<br>
+    Інтерпретація аналізів — за лікарем-ендокринологом.
   </div>
-</section>
+
+</div>
 
 </body>
 </html>
