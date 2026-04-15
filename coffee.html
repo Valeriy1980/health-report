@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кава, сигарети та щитовидка — Кветко А.Р.</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-dark: #1a1a2e;
+  --bg-card: #16213e;
+  --bg-card-light: #1c2a4a;
+  --accent-green: #4ade80;
+  --accent-yellow: #fbbf24;
+  --accent-red: #f87171;
+  --accent-blue: #60a5fa;
+  --accent-orange: #fb923c;
+  --text-main: #f1f5f9;
+  --text-dim: #94a3b8;
+  --text-bright: #ffffff;
+  --success-bg: rgba(74,222,128,0.12);
+  --warning-bg: rgba(251,191,36,0.12);
+  --danger-bg: rgba(248,113,113,0.12);
+  --info-bg: rgba(96,165,250,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  font-size: 22px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-bottom: 3px solid rgba(96,165,250,0.3);
+}
+
+.hero-label {
+  display: inline-block;
+  background: rgba(96,165,250,0.15);
+  color: var(--accent-blue);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 8px 24px;
+  border-radius: 30px;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--text-bright);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.hero .subtitle {
+  font-size: 24px;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.hero .patient-info {
+  margin-top: 24px;
+  font-size: 20px;
+  color: var(--text-dim);
+}
+
+.hero .patient-info strong {
+  color: var(--text-main);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 40px 0;
+}
+
+.section-title {
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--text-bright);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.section-title .emoji {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ===== TREND CARDS ===== */
+.trend-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.trend-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 28px 32px;
+  border-left: 5px solid var(--accent-green);
+  transition: transform 0.2s;
+}
+
+.trend-card:hover { transform: translateY(-2px); }
+
+.trend-card.warning { border-left-color: var(--accent-yellow); }
+.trend-card.danger { border-left-color: var(--accent-red); }
+.trend-card.info { border-left-color: var(--accent-blue); }
+
+.trend-card .label {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.trend-card .values {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+  word-break: break-all;
+}
+
+.trend-card .values .arrow { color: var(--accent-blue); }
+
+.trend-card .status {
+  font-size: 22px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 16px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.status.good { background: var(--success-bg); color: var(--accent-green); }
+.status.caution { background: var(--warning-bg); color: var(--accent-yellow); }
+.status.alert { background: var(--danger-bg); color: var(--accent-red); }
+
+.trend-card .explanation {
+  font-size: 21px;
+  color: var(--text-dim);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ===== BIG CARDS (Coffee, Cigarettes) ===== */
+.big-card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  padding: 36px;
+  margin-bottom: 30px;
+  border: 2px solid rgba(255,255,255,0.06);
+}
+
+.big-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.big-card-icon {
+  font-size: 52px;
+  line-height: 1;
+}
+
+.big-card-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--text-bright);
+}
+
+.verdict {
+  font-size: 28px;
+  font-weight: 800;
+  padding: 16px 28px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.verdict.yes {
+  background: var(--success-bg);
+  color: var(--accent-green);
+  border: 2px solid rgba(74,222,128,0.25);
+}
+
+.verdict.no {
+  background: var(--danger-bg);
+  color: var(--accent-red);
+  border: 2px solid rgba(248,113,113,0.25);
+}
+
+.point {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+  align-items: flex-start;
+}
+
+.point-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.point-text {
+  font-size: 23px;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.point-text strong {
+  color: var(--text-bright);
+  font-weight: 800;
+}
+
+.highlight-box {
+  background: var(--bg-card-light);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin: 20px 0;
+  border-left: 4px solid var(--accent-blue);
+}
+
+.highlight-box p {
+  font-size: 23px;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+/* ===== ANALOGY ===== */
+.analogy {
+  background: linear-gradient(135deg, rgba(96,165,250,0.08), rgba(96,165,250,0.03));
+  border: 2px solid rgba(96,165,250,0.15);
+  border-radius: 20px;
+  padding: 32px;
+  margin: 24px 0;
+  text-align: center;
+}
+
+.analogy .icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.analogy p {
+  font-size: 24px;
+  color: var(--text-main);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ===== BOTTOM SUMMARY ===== */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 24px 28px;
+}
+
+.summary-icon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.summary-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-dim);
+  font-size: 18px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 40px;
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(96,165,250,0.3), transparent);
+  margin: 30px 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 600px) {
+  .trend-grid { grid-template-columns: 1fr 1fr; }
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: 52px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-label">Медичне пояснення</div>
+    <h1>Кава, сигарети та щитовидка</h1>
+    <p class="subtitle">Що можна, що ні — і чому</p>
+    <p class="patient-info">
+      <strong>Пацієнт:</strong> Кветко Андрій Романович<br>
+      <strong>Дата:</strong> квітень 2026 &nbsp;|&nbsp; <strong>Діагноз:</strong> хвороба Грейвса (гіпертиреоз)
+    </p>
+  </div>
+</div>
+
+<!-- SECTION 1: TRENDS -->
+<div class="container">
+  <section>
+    <div class="section-title">
+      <span class="emoji">📊</span>
+      Як змінюються аналізи
+    </div>
+    <p style="text-align:center; font-size:22px; color:var(--text-dim); margin-bottom:30px;">
+      Загалом — динаміка <strong style="color:var(--accent-green)">позитивна</strong>. Лікування працює.
+    </p>
+
+    <div class="trend-grid">
+
+      <!-- FT3 -->
+      <div class="trend-card">
+        <div class="label">FT3 — «робочий» гормон</div>
+        <div class="values">8,03 <span class="arrow">→</span> 5,17 <span class="arrow">→</span> 2,62 <span class="arrow">→</span> 3,72</div>
+        <div class="status good">✅ Норма</div>
+        <div class="explanation">Норма: 2,0–4,4. Був дуже високий — зараз повернувся в норму.</div>
+      </div>
+
+      <!-- FT4 -->
+      <div class="trend-card">
+        <div class="label">FT4 — другий гормон</div>
+        <div class="values">2,17 <span class="arrow">→</span> 1,40 <span class="arrow">→</span> 0,73 <span class="arrow">→</span> 1,22</div>
+        <div class="status good">✅ Норма</div>
+        <div class="explanation">Норма: 0,92–1,68. Стабілізувався. Було і занадто низько — зараз добре.</div>
+      </div>
+
+      <!-- TRAb -->
+      <div class="trend-card warning">
+        <div class="label">TRAb — антитіла до рецепторів ТТГ</div>
+        <div class="values">28,7 <span class="arrow">→</span> 17,2 <span class="arrow">→</span> 15,3 <span class="arrow">→</span> 7,11</div>
+        <div class="status caution">⚠️ Ще підвищений</div>
+        <div class="explanation">Норма: &lt;1,53. Впав вчетверо за 7 місяців — гарна тенденція! Але ще далеко до норми. Саме цей показник вирішує, чи можна відміняти ліки.</div>
+      </div>
+
+      <!-- TSH -->
+      <div class="trend-card warning">
+        <div class="label">ТТГ — «командир» щитовидки</div>
+        <div class="values">0,005 <span class="arrow">→</span> 0,021 <span class="arrow">→</span> 0,29 <span class="arrow">→</span> 0,065</div>
+        <div class="status caution">⚠️ Знову знизився</div>
+        <div class="explanation">Норма: 0,27–4,2. У грудні піднявся до 0,29 — майже норма! Але в квітні знову впав. Можливо, потрібна корекція дози. Обговоріть з ендокринологом.</div>
+      </div>
+
+      <!-- Anti-TPO -->
+      <div class="trend-card">
+        <div class="label">Анти-ТПО — аутоімунні антитіла</div>
+        <div class="values">298 <span class="arrow">→</span> 264 <span class="arrow">→</span> 104 <span class="arrow">→</span> 73,9 <span class="arrow">→</span> 55,5</div>
+        <div class="status good">✅ Знижуються</div>
+        <div class="explanation">Ще вище норми (&lt;34), але стабільно падають. Добрий знак — аутоімунна атака слабшає.</div>
+      </div>
+
+      <!-- Anti-TG -->
+      <div class="trend-card">
+        <div class="label">Анти-ТГ — антитіла до тиреоглобуліну</div>
+        <div class="values">226,9 <span class="arrow">→</span> 118 <span class="arrow">→</span> 87,6 <span class="arrow">→</span> 34,9</div>
+        <div class="status good">✅ Увійшли в норму</div>
+        <div class="explanation">Норма: &lt;115. Були дуже високі — зараз 34,9. Чудовий результат!</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 2: COFFEE -->
+  <section>
+    <div class="big-card">
+      <div class="big-card-header">
+        <span class="big-card-icon">☕</span>
+        <span class="big-card-title">Кава: 1–2 чашки на день</span>
+      </div>
+
+      <div class="verdict yes">✅ Можна — з розумом</div>
+
+      <div class="point">
+        <span class="point-icon">👍</span>
+        <span class="point-text">Помірна кава <strong>не заважає тіамазолу</strong> працювати і не погіршує перебіг хвороби Грейвса, коли гормони вже в нормі.</span>
+      </div>
+
+      <div class="point">
+        <span class="point-icon">💓</span>
+        <span class="point-text">Кофеїн може <strong>підсилювати серцебиття, тремтіння рук, тривожність</strong>. Це ті самі симптоми, що й при гіпертиреозі. Якщо відчуваєте — зменшіть кількість.</span>
+      </div>
+
+      <div class="highlight-box">
+        <p>⏰ <strong>Важливо:</strong> пийте каву через <strong>1–1,5 години після</strong> прийому тіамазолу (мерказолілу). Кава може впливати на всмоктування препарату.</p>
+      </div>
+
+      <div class="point">
+        <span class="point-icon">📋</span>
+        <span class="point-text"><strong>Підсумок:</strong> 1–2 чашки — без проблем. Слідкуйте за пульсом. Не натщесерце разом з ліками.</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 3: CIGARETTES -->
+  <section>
+    <div class="big-card">
+      <div class="big-card-header">
+        <span class="big-card-icon">🚬</span>
+        <span class="big-card-title">Сигарети: 5–8 на тиждень</span>
+      </div>
+
+      <div class="verdict no">⚠️ Шкодить саме вашому одужанню</div>
+
+      <div class="point">
+        <span class="point-icon">🔄</span>
+        <span class="point-text">Куріння <strong>підвищує ризик рецидиву</strong> (повернення хвороби після відміни ліків). У вас TRAb ще 7,11 — організм ще бореться. Сигарети гальмують цю боротьбу.</span>
+      </div>
+
+      <div class="point">
+        <span class="point-icon">👁️</span>
+        <span class="point-text">Куріння — <strong>головний фактор ризику ураження очей</strong> при хворобі Грейвса (набряк, випинання, подвоєння зору). Це найдоведеніший зв'язок в ендокринології.</span>
+      </div>
+
+      <div class="point">
+        <span class="point-icon">🔥</span>
+        <span class="point-text">Навіть 5–8 сигарет на тиждень — <strong>достатня доза</strong>, щоб підтримувати аутоімунну атаку на щитовидку.</span>
+      </div>
+
+      <div class="analogy">
+        <div class="icon">🧯</div>
+        <p>Це як заливати бензином вогонь,<br>який ви одночасно гасите водою.<br><strong>Тіамазол гасить — сигарети підливають.</strong></p>
+      </div>
+
+      <div class="point">
+        <span class="point-icon">📋</span>
+        <span class="point-text"><strong>Підсумок:</strong> Чим раніше вдасться відмовитись — тим більший шанс на повну ремісію. Поговоріть з лікарем про допомогу у відмові.</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 4: WHAT TO DO -->
+  <section>
+    <div class="section-title">
+      <span class="emoji">📝</span>
+      Що обговорити з ендокринологом
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-item">
+        <span class="summary-icon">1️⃣</span>
+        <span class="summary-text">ТТГ знову впав (0,065 після 0,29) — можливо, потрібна корекція дози тіамазолу</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-icon">2️⃣</span>
+        <span class="summary-text">TRAb знижується (7,11) — коли очікувати відміну ліків?</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-icon">3️⃣</span>
+        <span class="summary-text">Допомога з відмовою від куріння — для кращого прогнозу</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-icon">4️⃣</span>
+        <span class="summary-text">Коли наступний контроль аналізів?</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Ця сторінка створена для ознайомлення та не є медичним призначенням.<br>
+    Інтерпретація аналізів має проводитись лікарем-ендокринологом.</p>
+  </div>
+</div>
+
+</body>
+</html>
